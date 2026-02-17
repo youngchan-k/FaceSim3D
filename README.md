@@ -15,23 +15,6 @@ A **Blender (bpy) pipeline** for generating photorealistic stereo face images. L
 - Base scene: `data/face/glasses.blend` (cameras and glasses)
 - HDRIs in `data/hdri/`
 
-## Data structure
-
-```
-data/
-├── face/
-│   ├── glasses.blend          # Base scene
-│   ├── female/
-│   │   ├── 1/                 # model_num
-│   │   │   ├── OBJ/           # Eye Lens.OBJ, Head.OBJ, Lashes.OBJ, Teeth.OBJ
-│   │   │   └── Textures/      # Colour_8k.jpg, Gloss.jpg, Spec.jpg, Eye Colour.jpg, Teeth.jpg
-│   │   └── 2/
-│   └── male/
-│       ├── 1/
-│       └── 2/
-└── hdri/                      # goegap_4k.exr, etc.
-```
-
 ## Face Model & Glasses Download
 
 Download from [Google Drive](https://drive.google.com/drive/folders/1amonkG4bumFCZ8tylnzKeQfDs6fKSZrU?usp=sharing).
@@ -43,7 +26,6 @@ Download from [Google Drive](https://drive.google.com/drive/folders/1amonkG4bumF
 Use [polydown](https://github.com/agmmnn/polydown) to download HDRIs from Poly Haven:
 
 ```bash
-cd project_1
 pip install polydown
 polydown hdris -f data/hdri -s 4k -ff exr
 ```
@@ -51,7 +33,7 @@ polydown hdris -f data/hdri -s 4k -ff exr
 ## Run
 
 ```bash
-cd project_1 && blender --background --python run.py
+blender --background --python run.py
 ```
 
 ## Outputs

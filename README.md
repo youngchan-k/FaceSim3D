@@ -10,7 +10,6 @@ A **Blender (bpy)** pipeline for stereo face images: load base scene, import fac
 
 ## Folder structure
 
-
 ```
 FaceSim3D/
 ├── data/
@@ -23,14 +22,19 @@ FaceSim3D/
 │   │   ├── eye_lens.OBJ
 │   │   └── eye_lens.mtl       # (download from Google Drive)
 │   └── hdri/                  # .exr environment maps
-├── core/                      # Pipeline package
-│   ├── defs.py                # Paths, asset names, scene constants
-│   ├── settings.py            # Config dataclass, save_params()
-│   ├── bpy_helpers.py         # Blender helpers (object mode, collections, origin)
-│   ├── meshes.py              # OBJ path check, import, eye split (common/separate)
-│   ├── gaze.py                # Target, eye tracking, cameras, glasses, skin curve
-│   ├── textures.py            # Material assignment, head/eye/teeth textures, HDRI
-│   └── export.py              # Cycles stereo render, save .blend
+├── config/                    # Paths, constants, Config, save_params
+│   ├── defs.py
+│   └── settings.py
+├── bpy_utils/                 # Blender helpers (object mode, collections, origin)
+│   └── helpers.py
+├── mesh/                      # OBJ path check, import, eye split
+│   └── meshes.py
+├── scene/                     # Target, eye tracking, cameras, glasses, skin curve
+│   └── gaze.py
+├── materials/                 # Material assignment, textures, HDRI
+│   └── textures.py
+├── export/                    # Cycles stereo render, save .blend
+│   └── render.py
 ├── run.py                     # Entry point
 └── out/                       # Renders, result.blend, render_config.json (default)
 ```

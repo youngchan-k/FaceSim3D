@@ -8,14 +8,6 @@ A **Blender (bpy) pipeline** for generating photorealistic stereo face images. L
 - **Output:** Stereo image pair, saved Blender scene, run configuration JSON
 - **Pipeline:** Import → eye tracking setup → materials → lighting → render → save
 
-## Requirements
-
-- Blender with `bpy` Python API
-- Face models in `data/face/{gender}/{model_num}/OBJ/` and `data/face/{gender}/{model_num}/Textures/`
-- Separate eye models in `data/eyes/` (for separate eye mode)
-- Base scene: `data/glasses.blend` (cameras and glasses)
-- HDRIs in `data/hdri/`
-
 ## Folder structure
 
 Recommended folder structure. Create any missing folders.
@@ -71,11 +63,15 @@ For separate mode, ensure **`data/eyes/eye_lens.OBJ`** and **`eye_lens.mtl`** ex
 
 ## Run
 
+You need **Blender** (with its bundled Python and the **`bpy`** module). The pipeline uses only `bpy` and the standard library; no extra packages are required.
+
 ```bash
 blender --background --python run.py
 ```
 
 ## Outputs
+
+All outputs are written to the `out/` directory (configurable via `Config.save_dir`).
 
 | File | Description |
 |------|-------------|
@@ -83,5 +79,3 @@ blender --background --python run.py
 | `view_R.png` | Right-camera stereo view |
 | `result.blend` | Saved Blender scene (textures packed) |
 | `render_config.json` | Run parameters for reproducibility |
-
-All outputs are written to the `out/` directory (configurable via `Config.save_dir`).

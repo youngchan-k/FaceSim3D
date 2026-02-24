@@ -1,6 +1,6 @@
 # Face Rendering Pipeline
 
-A **Blender (bpy) pipeline** for generating photorealistic stereo face images. Loads `glasses.blend` as the base scene (cameras + glasses), imports a 3D face model (head, eyes, lashes, teeth), configures gaze tracking with kappa-angle correction, applies materials and HDR environment lighting, then renders a left/right stereo pair suitable for VR or 3D display applications.
+A **Blender (bpy)** pipeline for stereo face images: load base scene, import face model, set up gaze and materials, render left/right pair.
 
 ## Overview
 
@@ -10,7 +10,6 @@ A **Blender (bpy) pipeline** for generating photorealistic stereo face images. L
 
 ## Folder structure
 
-Recommended folder structure. Create any missing folders.
 
 ```
 FaceSim3D/
@@ -49,7 +48,7 @@ polydown hdris -f data/hdri -s 4k -ff exr
 
 ## Configuration
 
-Edit `core/settings.py` (the `Config` dataclass) or override when constructing `Config(...)` in `run.py`.
+Edit `core/settings.py` or pass options when creating `Config()` in `run.py`.
 
 **Key options:** `gender`, `model_num`, `eye_texture_num`, `target_location`, `cam_rotation`, `hdri_name`, `render_samples`, `render_resolution_x`/`y`, `glasses_location`/`rotation`/`scale`.
 
@@ -59,11 +58,9 @@ Edit `core/settings.py` (the `Config` dataclass) or override when constructing `
 | **Common** | `True` | `Eye Lens.OBJ` (in each model’s OBJ folder) | One mesh imported, split by loose parts into left/right. No per-eye position or scale. |
 | **Separate** | `False` | `eye_lens.OBJ` in `data/eyes/` | Same mesh imported twice (left, right). Independent position and scale per eye. |
 
-For separate mode, ensure **`data/eyes/eye_lens.OBJ`** and **`eye_lens.mtl`** exist (download from Google Drive).
-
 ## Run
 
-You need **Blender** (with its bundled Python and the **`bpy`** module). The pipeline uses only `bpy` and the standard library; no extra packages are required.
+Requires **Blender** (with **`bpy`**). No extra packages.
 
 ```bash
 blender --background --python run.py

@@ -1,13 +1,11 @@
-"""
-Material assignment, texture and HDRI loading. Distinct from sample/utils/materials.py.
-"""
+"""Material assignment, texture and HDRI loading."""
 import math
 import os
 
 import bpy
 
-from core.defs import EYE_LEFT_NAME, EYE_RIGHT_NAME
-from core.settings import Config
+from config.defs import EYE_LEFT_NAME, EYE_RIGHT_NAME
+from config.settings import Config
 
 
 def _set_image_on_node(

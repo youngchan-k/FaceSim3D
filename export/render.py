@@ -1,19 +1,17 @@
-"""
-Stereo render and blend save. Distinct from sample/utils/rendering.py.
-"""
+"""Stereo render and blend save."""
 import os
 import shutil
 
 import bpy
 
-from core.defs import (
+from config.defs import (
     CAMERA_LEFT_NAME,
     CAMERA_RIGHT_NAME,
     DEFAULT_BLEND_FILENAME,
     RENDER_OUTPUT_LEFT,
     RENDER_OUTPUT_RIGHT,
 )
-from core.settings import Config
+from config.settings import Config
 
 
 def _apply_render_settings(cfg: Config) -> None:

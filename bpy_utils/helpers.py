@@ -1,11 +1,7 @@
-"""
-Low-level Blender helpers: object mode, selection, collections, origin.
-
-Distinct from sample/utils/blender_utils.py.
-"""
+"""Low-level Blender helpers: object mode, selection, collections, origin."""
 import bpy
 
-from core.defs import FACE_COLLECTION_NAME
+from config.defs import FACE_COLLECTION_NAME
 
 
 def ensure_object_mode() -> None:

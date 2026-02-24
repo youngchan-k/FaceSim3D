@@ -1,17 +1,14 @@
 """
 Entry point for the face rendering pipeline.
-
-Run from Blender (Scripting or CLI: blender template.blend --background --python run.py).
-Uses the core package (distinct from sample/: sample has main.py + utils/, this uses run.py + core/).
-
-Pipeline: load template → validate paths → import meshes → split eyes → target & eye tracking
-→ assign materials & load textures & HDRI → target/skin/cameras/glasses → render stereo → save blend & config.
+Run from Blender: blender --background --python run.py
 """
 import bpy
 
-from core.bpy_helpers import get_face_collection
-from core.export import render_stereo, save_blend
-from core.gaze import (
+from config.defs import TEMPLATE_PATH
+from config.settings import Config, save_params
+from bpy_utils.helpers import get_face_collection
+from mesh.meshes import check_paths, load_meshes, split_eyes
+from scene.gaze import (
     make_target,
     move_target,
     setup_cameras,
@@ -19,10 +16,8 @@ from core.gaze import (
     setup_glasses,
     skin_curve,
 )
-from core.meshes import check_paths, load_meshes, split_eyes
-from core.defs import TEMPLATE_PATH
-from core.settings import Config, save_params
-from core.textures import assign_materials, load_hdri, load_textures
+from materials.textures import assign_materials, load_hdri, load_textures
+from export.render import render_stereo, save_blend
 
 
 def main() -> None:

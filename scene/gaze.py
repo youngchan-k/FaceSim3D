@@ -1,13 +1,11 @@
-"""
-Target, eye tracking (kappa), cameras, glasses, skin curve. Distinct from sample/utils/scene_setup.py.
-"""
+"""Target, eye tracking (kappa), cameras, glasses, skin curve."""
 import math
 
 import bpy
 from mathutils import Euler, Vector
 
-from core.bpy_helpers import ensure_object_mode, set_origin_to_geometry
-from core.defs import (
+from bpy_utils.helpers import ensure_object_mode, set_origin_to_geometry
+from config.defs import (
     CAMERA_LEFT_NAME,
     CAMERA_RIGHT_NAME,
     EYE_LEFT_NAME,
@@ -19,7 +17,7 @@ from core.defs import (
     TRACK_AXIS,
     UP_AXIS,
 )
-from core.settings import Config
+from config.settings import Config
 
 
 def _visual_to_optical_target(

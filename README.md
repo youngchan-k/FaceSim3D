@@ -38,9 +38,9 @@ out/                           # Renders, result.blend, render_config.json (defa
 
 ## Downloading assets
 
-**3D assets (face models, eye lens, base scene)** - Download from [Google Drive](https://drive.google.com/drive/folders/1amonkG4bumFCZ8tylnzKeQfDs6fKSZrU?usp=sharing) and place them in the correct folders.
+**3D assets**: Download from [Google Drive](https://drive.google.com/drive/folders/1amonkG4bumFCZ8tylnzKeQfDs6fKSZrU?usp=sharing) and place them in the correct folders.
 
-**HDRIs** - Use [polydown](https://github.com/agmmnn/polydown) to download HDRIs from Poly Haven:
+**HDRIs**: Use [polydown](https://github.com/agmmnn/polydown) to download HDRIs from Poly Haven:
 
 ```bash
 pip install polydown
@@ -51,12 +51,11 @@ polydown hdris -f data/hdri -s 4k -ff exr
 
 Edit `core/settings.py` (the `Config` dataclass) or override when constructing `Config(...)` in `run.py`.
 
-**Key options:** `gender`, `model_num`, `eye_texture_num`, `target_location`, `cam_rotation`, `hdri_name`, `render_samples`, `render_resolution_x`/`y`, `glasses_location`/`rotation`/`scale`.
-
-| `use_common_eye_mesh` | Eye mesh | Behavior |
-|------------------------|----------|----------|
-| `True` | `Eye Lens.OBJ` (in each model’s OBJ folder) | One mesh imported, split by loose parts into left/right. No per-eye position or scale. |
-| `False` | `eye_lens.OBJ` in `data/eyes/` | Same mesh imported twice (left, right). Independent position and scale per eye. |
+**Mode setting:**
+| Mode | `use_common_eye_mesh` | Eye mesh | Behavior |
+|------|------------------------|----------|----------|
+| **Common** | `True` | `Eye Lens.OBJ` (in each model’s OBJ folder) | One mesh imported, split by loose parts into left/right. No per-eye position or scale. |
+| **Separate** | `False` | `eye_lens.OBJ` in `data/eyes/` | Same mesh imported twice (left, right). Independent position and scale per eye. |
 
 
 ## Run
